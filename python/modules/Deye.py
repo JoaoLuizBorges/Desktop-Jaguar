@@ -69,25 +69,9 @@ def Monit_Deye():
     WebDriverWait(web,50).until(EC.element_to_be_clickable((By. XPATH, '//*[@id="app"]/div[3]/div[6]/section/div[2]/div[2]/button'))).click()
     time.sleep(12)
 
-    ultimoElemento = web.find_element(By.XPATH, '//*[@id="mainFrame"]/div[5]/div[2]/section/div/div[6]/div/div/div[4]/div[1]/div[1]/div/div[1]/div/div[3]/div[1]/div[2]/table/tbody/tr[10]/td[2]/div')
-    web.execute_script('arguments[0].scrollIntoView(true);', ultimoElemento)
-    #web.execute_script('arguments[0].click();', ultimoElemento)
-    #time.sleep(5)
-
-    web.save_screenshot('captura1.png')
-
-    #WebDriverWait(web,50).until(EC.element_to_be_clickable((By. XPATH, '/html/body/div[1]/aside/div[3]/div[3]/div[2]/button[1]'))).click()
     print("No monitoramento")
 
-    #WebDriverWait(web,50).until(EC.element_to_be_clickable((By. XPATH, '//*[@id="mainFrame"]/div[5]/div[2]/section/div/div[6]/div/div/div[4]/div[1]/div[1]/div/div[1]/div/div[3]/div[1]/div[2]/table/tbody/tr[1]/td[2]'))).click()
-
-    #web.switch_to.window(web.window_handles[1])
-
-    #WebDriverWait(web,50).until(EC.element_to_be_clickable((By. XPATH, '//*[@id="mainFrame"]/aside/div[4]/div[3]/div[2]/button'))).click()
-
     pageSource = web.page_source
-
-
 
     pg_html = sp(pageSource,'html.parser')
     print(pg_html.text)
@@ -109,21 +93,6 @@ def Monit_Deye():
 
     with open("pg_html.txt","w", encoding='utf-8') as g:
         g.write(pageSource)
-
-
-    #id_locais = pg_html.find_all(attrs={"class":"fsLv1"})
-    #print(id_locais)
-
-    #url = web.current_url
-
-    #url.split("=")
-    #id_locais = url[54:61]
-
-
-
-
-
-
 
 Monit_Deye()
 
