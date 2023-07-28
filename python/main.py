@@ -1,8 +1,12 @@
 def main():
     from modules import Solaredge
+    from modules import Deye
+    from modules import Growatt
     import json
 
     DadosClienteSolaredge = (Solaredge.Monit_SE())
+    DadosClienteSolarman = (Deye.Monit_Deye())
+    DadosClientesGrowatt = (Growatt.Monit_Growatt())
 
     InfoCliente = {
         "Id": [],
@@ -10,10 +14,20 @@ def main():
         "Energia_Dia": []
     }
 
+    for i in range(len(DadosClientesGrowatt)):
+        InfoCliente["Id"].append(DadosClientesGrowatt[i][0])
+        InfoCliente["Nome_Cliente"].append(DadosClientesGrowatt[i][1])
+        InfoCliente["Energia_Dia"].append(DadosClientesGrowatt[i][2])
+
     for i in range(len(DadosClienteSolaredge)):
         InfoCliente["Id"].append(DadosClienteSolaredge[i][0])
         InfoCliente["Nome_Cliente"].append(DadosClienteSolaredge[i][1])
         InfoCliente["Energia_Dia"].append(DadosClienteSolaredge[i][2])
+
+    for i in range(len(DadosClienteSolarman)):
+        InfoCliente["Id"].append(DadosClienteSolarman[i][0])
+        InfoCliente["Nome_Cliente"].append(DadosClienteSolarman[i][1])
+        InfoCliente["Energia_Dia"].append(DadosClienteSolarman[i][2])
 
     DadosGeracao = json.dumps(InfoCliente)
 

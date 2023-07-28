@@ -12,7 +12,7 @@ public class QueriesDados {
         String SCRIPTPATH = "C:\\Users\\joaob\\OneDrive\\Área de Trabalho\\Desenvolvimento\\Jaguar-Desktop\\jaguar\\python\\main.py";
         ProcessBuilder pb = new ProcessBuilder(PYTHONPATH, SCRIPTPATH);
         Process p = pb.start();
-        String JSONPATH = "C:\\Users\\joaob\\OneDrive\\Área de Trabalho\\Desenvolvimento\\Jaguar-Desktop\\jaguar\\python\\InfoCliente.json";
+        String JSONPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\InfoCliente.json";
         try{
             String key = null;
             ArrayList<String> value = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class QueriesDados {
         try(Connection conexao = DriverManager.getConnection(conecta[0],conecta[1],conecta[2])){
 
             Statement stmt = (Statement)conexao.createStatement();
-            String select = "SELECT id_locais FROM geracao WHERE id_locais = '"+id_locais+"'";
+            String select = "SELECT id_locais, nome_cliente FROM geracao WHERE id_locais = '"+id_locais+"'";
             ResultSet rs = stmt.executeQuery(select);
 
             if(rs.next()) {
