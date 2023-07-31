@@ -9,7 +9,8 @@ public class QueriesDados {
     public static void ConectaPython() throws Exception{
 
         String PYTHONPATH = "C:\\Users\\joaob\\AppData\\Local\\Programs\\Python\\Python311\\python.exe";
-        String SCRIPTPATH = "C:\\Users\\joaob\\OneDrive\\Área de Trabalho\\Desenvolvimento\\Jaguar-Desktop\\jaguar\\python\\main.py";
+        String SCRIPTPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\main.py";
+
         ProcessBuilder pb = new ProcessBuilder(PYTHONPATH, SCRIPTPATH);
         Process p = pb.start();
         String JSONPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\InfoCliente.json";

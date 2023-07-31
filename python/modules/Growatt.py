@@ -19,7 +19,7 @@ def Monit_Growatt():
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
             "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-            "cookie": "JSESSIONID=2f007107-d7d2-4c98-8c92-5160432100ae; lang=en; assToken=98c9c2cadc888298f4202847db4a5d7a; adPic=true; uns=BAFLD001; pds=49cc005b1c024f819d216671ae07f2fe",
+            "cookie": "lang=en; adPic=true; JSESSIONID=7e75377a-8dcf-40cf-a256-5abc6a1cc1c9; assToken=9924f987dd6abffc2c55d3bcbfc98b40; uns=BAFLD001; pds=49cc005b1c024f819d216671ae07f2fe",
             "origin": "https://oss.growatt.com",
             "referer": "https://oss.growatt.com/index",
             "sec-ch-ua": "^\^Not/A",
@@ -52,4 +52,3 @@ def Monit_Growatt():
             dados.append([id_locais[i], nome_cliente[i], energia_dia[i]])
 
     return dados
-

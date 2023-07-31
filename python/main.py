@@ -1,12 +1,20 @@
 def main():
+
     from modules import Solaredge
     from modules import Deye
     from modules import Growatt
+    from modules import Hoymilles
+    from modules import Canadian
+    from modules import REFUlo
+
     import json
 
     DadosClienteSolaredge = (Solaredge.Monit_SE())
     DadosClienteSolarman = (Deye.Monit_Deye())
     DadosClientesGrowatt = (Growatt.Monit_Growatt())
+    DadosClientesHoymilles = (Hoymilles.Monit_Hoymilles())
+    DadosClientesCanadian = (Canadian.Monit_Canadian())
+    DadosClientesREFUsol = (REFUlo.Monit_REFUsol())
 
     InfoCliente = {
         "Id": [],
@@ -28,6 +36,21 @@ def main():
         InfoCliente["Id"].append(DadosClienteSolarman[i][0])
         InfoCliente["Nome_Cliente"].append(DadosClienteSolarman[i][1])
         InfoCliente["Energia_Dia"].append(DadosClienteSolarman[i][2])
+
+    for i in range(len(DadosClientesHoymilles)):
+        InfoCliente["Id"].append(DadosClientesHoymilles[i][0])
+        InfoCliente["Nome_Cliente"].append(DadosClientesHoymilles[i][1])
+        InfoCliente["Energia_Dia"].append(DadosClientesHoymilles[i][2])
+
+    for i in range(len(DadosClientesCanadian)):
+        InfoCliente["Id"].append(DadosClientesCanadian[i][0])
+        InfoCliente["Nome_Cliente"].append(DadosClientesCanadian[i][1])
+        InfoCliente["Energia_Dia"].append(DadosClientesCanadian[i][2])
+
+    for i in range(len(DadosClientesREFUsol)):
+        InfoCliente["Id"].append(DadosClientesREFUsol[i][0])
+        InfoCliente["Nome_Cliente"].append(DadosClientesREFUsol[i][1])
+        InfoCliente["Energia_Dia"].append(DadosClientesREFUsol[i][2])
 
     DadosGeracao = json.dumps(InfoCliente)
 
