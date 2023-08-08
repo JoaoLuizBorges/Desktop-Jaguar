@@ -19,7 +19,7 @@ def Monit_Growatt():
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
             "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-            "cookie": "lang=en; adPic=true; JSESSIONID=7e75377a-8dcf-40cf-a256-5abc6a1cc1c9; assToken=9924f987dd6abffc2c55d3bcbfc98b40; uns=BAFLD001; pds=49cc005b1c024f819d216671ae07f2fe",
+            "cookie": "JSESSIONID=80212827-918e-4d81-9715-f78868eb42b2; lang=en; adPic=true; assToken=c44dda181faa5aed9259d2c3aff83754",
             "origin": "https://oss.growatt.com",
             "referer": "https://oss.growatt.com/index",
             "sec-ch-ua": "^\^Not/A",
@@ -33,6 +33,10 @@ def Monit_Growatt():
         }
 
         response = requests.request("POST", url, data=payload, headers=headers)
+
+        if response is None:
+            Monit_Growatt()
+
         r = response.json()
 
         num = r['obj']['pagers'][0]['datas']
