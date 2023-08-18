@@ -6,6 +6,7 @@ def main():
     from modules import Hoymilles
     from modules import Canadian
     from modules import REFUlo
+    from modules import AuraVision
 
     import json
 
@@ -15,6 +16,7 @@ def main():
     DadosClientesHoymilles = (Hoymilles.Monit_Hoymilles())
     DadosClientesCanadian = (Canadian.Monit_Canadian())
     DadosClientesREFUsol = (REFUlo.Monit_REFUsol())
+    DadosClientesAuraVision = (AuraVision.Monit_AuraVision())
 
     InfoCliente = {
         "Id": [],
@@ -51,6 +53,10 @@ def main():
         InfoCliente["Id"].append(DadosClientesREFUsol[i][0])
         InfoCliente["Nome_Cliente"].append(DadosClientesREFUsol[i][1])
         InfoCliente["Energia_Dia"].append(DadosClientesREFUsol[i][2])
+
+    for i in range(len(DadosClientesAuraVision)):
+        InfoCliente["Id"].append(DadosClientesAuraVision[i][0])
+        InfoCliente["Nome_Cliente"].append(DadosClientesAuraVision[i][1])
 
     DadosGeracao = json.dumps(InfoCliente)
 
