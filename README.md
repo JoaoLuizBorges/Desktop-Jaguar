@@ -29,7 +29,7 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
   - _LogAcesso.java_ - Java 20 usando da ferramento MAVEN (**Provisório**)
     
 * Interface e Controle do Banco de Dados:
-  - _QueriesDados.java_ - Java 20
+  - _QueriesDados.java_ - Java 20 usando da ferramento MAVEN
     
 * Consumo de API e _requests_:
   - Scripts python - Python 3.11
