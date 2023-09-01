@@ -1,8 +1,10 @@
 # Aplicativo Jaguar
 
+<p align="justify"> 
 O seguinte projeto tem como objetivo agregar as informações vindas dos principais Monitoramentos
 de Sistemas Fovoltaicos. Tais monitoramentos realizam a aquisição de dados por meio de suas 
 respectivas aplicações web.
+</p>
 
 Neste aplicativo temos agregados os seguintes monitoramentos: 
 
