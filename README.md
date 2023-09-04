@@ -36,3 +36,7 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 * Consumo de API e _requests_:
   - Scripts python - Python 3.11
 
+### Fluxo do programa
+
+
+
