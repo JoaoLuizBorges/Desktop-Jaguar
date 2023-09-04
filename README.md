@@ -43,8 +43,9 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 ## Objetivos futuros
 
 - [ ] Estudos da linguagem JavaScript;
-- [ ] Estudos de Mecanismos de autênticação, por exemplo OAtuh2.
-- [ ] Estudos Java
+- [ ] Estudos de Mecanismos de autênticação, por exemplo OAtuh2;
+- [ ] Estudos Java;
 > * Anotações Inferidas;
 > * Expresões Lambdas;
 > * Modificadores de Acesso.
+- [ ] Estudos GitHub.
