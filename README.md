@@ -49,4 +49,5 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 > * Expresões Lambdas;
 > * Modificadores de Acesso;
 > * Spring framework.
-- [ ] Estudos GitHub.
+- [ ] Estudos GitHub;
+- [ ] Rever Programação Orientada a Objeto.
