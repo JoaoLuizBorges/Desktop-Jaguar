@@ -50,4 +50,5 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 > * Modificadores de Acesso;
 > * Spring framework.
 - [ ] Estudos GitHub;
-- [ ] Rever Programação Orientada a Objeto.
+- [ ] Rever Programação Orientada a Objeto;
+- [ ] Docker.
