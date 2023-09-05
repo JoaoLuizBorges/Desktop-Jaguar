@@ -47,5 +47,6 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 - [ ] Estudos Java;
 > * Anotações Inferidas;
 > * Expresões Lambdas;
-> * Modificadores de Acesso.
+> * Modificadores de Acesso;
+> * Spring framework.
 - [ ] Estudos GitHub.
