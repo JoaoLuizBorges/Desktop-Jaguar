@@ -38,5 +38,17 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 
 ### Fluxo do programa
 
+<img src = "https://github.com/JoaoLuizBorges/Desktop-Jaguar/blob/master/Fluxograma%20Jaguar.png" />
 
+## Objetivos futuros
 
+- [ ] Estudos da linguagem JavaScript;
+- [ ] Estudos de Mecanismos de autênticação, por exemplo OAtuh2;
+- [ ] Estudos Java;
+> * Anotações Inferidas;
+> * Expresões Lambdas;
+> * Modificadores de Acesso;
+> * Spring framework.
+- [ ] Estudos GitHub;
+- [ ] Rever Programação Orientada a Objeto;
+- [ ] Docker.
