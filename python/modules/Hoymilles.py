@@ -38,9 +38,10 @@ def Monit_Hoymilles():
 
     response = requests.request("POST", url, json=payload, headers=headers)
     r = response.json()
+    print(r)
 
-    num = r['data']['list']
-    num = len(num)
+    #num = r['data']['list']
+    num = len(r)
 
     for i in range(0,num):
 
@@ -57,3 +58,4 @@ def Monit_Hoymilles():
 
     return dados
 
+Monit_Hoymilles()

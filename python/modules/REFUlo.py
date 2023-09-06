@@ -125,3 +125,4 @@ def busca_geracao(locais,clientes,mes,hoje):
         tam = tam - 1
         return r['d'][0]['ChartData'][tam]['Value']['Value1']
 
+Monit_REFUsol()

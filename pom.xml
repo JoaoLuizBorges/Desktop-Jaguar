@@ -12,6 +12,7 @@
         <module>jaguar-main</module>
         <module>jaguar-logacessos</module>
         <module>jaguar-queriesdados</module>
+        <module>jaguar-inicio</module>
     </modules>
 
     <properties>

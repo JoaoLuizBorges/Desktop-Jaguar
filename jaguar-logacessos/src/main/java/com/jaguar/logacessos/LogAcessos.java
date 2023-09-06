@@ -1,8 +1,12 @@
 package com.jaguar.logacessos;
+import com.jaguar.Usuario;
 import com.jaguar.queriesdados.QueriesDados;
+import org.jetbrains.annotations.NotNull;
 import java.sql.SQLException;
 import java.util.Scanner;
+
 public class LogAcessos {
+
     public static void ControleAcesso() throws SQLException {
 
         try (Scanner inputScanner = new Scanner(System.in)) {
@@ -43,7 +47,7 @@ public class LogAcessos {
 
         LogAcessos.ControleAcesso();
     }
-    public static String[] Entrar(){
+    private static String @NotNull [] Entrar(){
         Scanner userScanner = new Scanner(System.in);
         String [] infoUser = new String[2];
         try{
@@ -58,6 +62,7 @@ public class LogAcessos {
                 String senhaUser = userScanner.nextLine();
                 senhaUser = senhaUser.replaceAll("\\s","");
                 infoUser[1] = senhaUser;
+
             }
         }catch(Exception e){
             System.out.println("Ocorreu um erro: " + e.getMessage());

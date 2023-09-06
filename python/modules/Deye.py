@@ -51,3 +51,4 @@ def Monit_Deye():
 
     return dados
 
+Monit_Deye()
