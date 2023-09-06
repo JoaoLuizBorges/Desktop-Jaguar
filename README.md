@@ -45,10 +45,13 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 - [ ] Estudos da linguagem JavaScript;
 - [ ] Estudos de Mecanismos de autênticação, por exemplo OAtuh2;
 - [ ] Estudos Java;
-> * Anotações Inferidas;
+> ~~* Anotações Inferidas;~~
 > * Expresões Lambdas;
 > * Modificadores de Acesso;
 > * Spring framework.
 - [ ] Estudos GitHub;
-- [ ] Rever Programação Orientada a Objeto;
+- [X] ~~Rever Programação Orientada a Objeto;~~
 - [ ] Docker.
+> * CyPress;
+> * PyAutoGui;
+> * RPA (?).
