@@ -54,5 +54,5 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 - [ ] Docker;
 - [ ] Automação de Processos.
 > * CyPress;
-> * PyAutoGui;
+> * ~~PyAutoGui~~;
 > * RPA (?).
