@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Appjaguar {
     public static void main(String[] args) throws Exception{
         try(Scanner inputUser = new Scanner(System.in)){
-            for(;;){
+            while(true) {
                 System.out.print("É a sua primeira vez acessando o sistema? <S>/<N>: ");
                 String escolhaUsuario = inputUser.nextLine();
                 escolhaUsuario = escolhaUsuario.toUpperCase().trim();

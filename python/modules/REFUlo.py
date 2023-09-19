@@ -57,6 +57,7 @@ def Monit_REFUsol():
 
         dados.append([id_locais[i], nome_cliente[i], energia_dia[i]])
 
+    print(dados)
     return dados
 
 

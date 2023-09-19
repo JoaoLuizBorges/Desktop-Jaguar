@@ -8,13 +8,13 @@ respectivas aplicações web.
 
 Neste aplicativo temos agregados os seguintes monitoramentos: 
 
- | Monitoramento |    Adicionado    |              Estado              |
+ | Monitoramento |    Adicionado    | Estado                           |
  |---------------|------------------|----------------------------------|
  | SolarEdge     | Quinto Commit    | _Funcional_                      |
  | SolarMan      | Oitavo Commit    | _Funcional_                      |
- | Hoymilles     | Oitavo Commit    | _Quebrado_                       |
+ | Hoymilles     | Oitavo Commit    | _Funcional_                      |
  | Canadian      | Oitavo Commit    | _Funcional_                      |
- | REFUlog       | Oitavo Commit    | _Funcional_                      |
+ | REFUlog       | Oitavo Commit    | _Alterar implementação Requests_ |
  | AuroraVision  | Nono Commit      | _Site Quebrado_                  |
  | Growatt       | Nono Commit      | _Alterar implementação Requests_ |
  | EcoSolys      | Décimo Commit    | _Alterar implementação Requests_ |

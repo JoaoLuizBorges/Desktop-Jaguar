@@ -50,5 +50,3 @@ def Monit_Deye():
         dados.append([id_locais[i], nome_cliente[i], energia_dia[i]])
 
     return dados
-
-Monit_Deye()

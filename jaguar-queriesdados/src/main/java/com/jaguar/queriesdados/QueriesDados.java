@@ -1,6 +1,7 @@
 package com.jaguar.queriesdados;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jaguar.logacessos.LogAcessos;
+import org.jetbrains.annotations.NotNull;
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.sql.*;
@@ -49,7 +50,7 @@ public class QueriesDados {
             e.printStackTrace();
         }
     }
-    public static String[] Conecta(){
+    public static String @NotNull [] Conecta(){
 
         String [] conecta = new String [3];
 

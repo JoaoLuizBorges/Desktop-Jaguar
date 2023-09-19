@@ -61,6 +61,6 @@ def Monit_SE():
         # 2555300: ('1112_Melissa Villela', 1077.0)
 
         for j in range(len(locais)):
-            DadosCliente[i] = dados
+            DadosCliente[j] = dados
 
     return DadosCliente

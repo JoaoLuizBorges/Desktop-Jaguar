@@ -1,12 +1,66 @@
 package com.jaguar.logacessos;
-import com.jaguar.Usuario;
 import com.jaguar.queriesdados.QueriesDados;
 import org.jetbrains.annotations.NotNull;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.regex.*;
+
 
 public class LogAcessos {
+    @NotNull
+    private static String Usuario() {
 
+        Scanner userScanner = new Scanner(System.in);
+        String loginUser = "";
+
+        try {
+            System.out.println("Insira um usuário: ");
+            if (userScanner.hasNextLine()) {
+                loginUser = userScanner.nextLine();
+                loginUser = loginUser.replaceAll("\\s", "");
+
+                if (loginUser.isEmpty()) {
+                    System.out.println("Tente novamente!");
+                    loginUser = LogAcessos.Usuario();
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro: " + e.getMessage());
+        }
+        return loginUser;
+    }
+    @NotNull
+    private static String Senha() {
+
+        Scanner userScanner = new Scanner(System.in);
+        String senhaUser = "";
+
+        try {
+
+            System.out.println("Insira uma senha de, no mínimo oito caracteres, que inclua,"
+                                + "ao menos, uma letra maiúscula e uma letra minúscula e,"
+                                + "no mínimo um caractere especial e um número: ");
+
+            if (userScanner.hasNextLine()) {
+                senhaUser = userScanner.nextLine();
+                senhaUser = senhaUser.replaceAll("\\s", "");
+                Pattern regex = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
+                Matcher matcher = regex.matcher(senhaUser);
+
+                if (!matcher.matches()) {
+                    System.out.println("Tente novamente!");
+                    senhaUser = LogAcessos.Senha();
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro: " + e.getMessage());
+        }
+
+        return senhaUser;
+    }
     public static void ControleAcesso() throws SQLException {
 
         try (Scanner inputScanner = new Scanner(System.in)) {
@@ -47,26 +101,18 @@ public class LogAcessos {
 
         LogAcessos.ControleAcesso();
     }
-    private static String @NotNull [] Entrar(){
-        Scanner userScanner = new Scanner(System.in);
-        String [] infoUser = new String[2];
-        try{
-            System.out.println("Insira um usuário: ");
-            if(userScanner.hasNextLine()){
-                String loginUser = userScanner.nextLine();
-                loginUser = loginUser.replaceAll("\\s", "");
-                infoUser[0] = loginUser;
-            }
-            System.out.println("Insira a senha: ");
-            if(userScanner.hasNextLine()){
-                String senhaUser = userScanner.nextLine();
-                senhaUser = senhaUser.replaceAll("\\s","");
-                infoUser[1] = senhaUser;
+    private static String @NotNull [] Entrar() {
 
-            }
-        }catch(Exception e){
+        String[] infoUser = new String[2];
+
+        try {
+
+            infoUser[0] = LogAcessos.Usuario();
+            infoUser[1] = LogAcessos.Senha();
+
+        } catch (Exception e) {
             System.out.println("Ocorreu um erro: " + e.getMessage());
         }
-    return infoUser;
+        return infoUser;
     }
 }

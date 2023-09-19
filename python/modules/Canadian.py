@@ -62,4 +62,3 @@ def Monit_Canadian():
 
     return dados
 
-Monit_Canadian()

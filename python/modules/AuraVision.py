@@ -34,7 +34,7 @@ def Monit_AuraVision():
     for i in range(len(num)):
 
         locais = r[i]['entityID']
-        id_locais.appen(locais)
+        id_locais.append(locais)
 
         clientes = r[i]['name']
         nome_cliente.append(clientes)
