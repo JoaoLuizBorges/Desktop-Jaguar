@@ -16,7 +16,7 @@ Neste aplicativo temos agregados os seguintes monitoramentos:
  | Canadian      | Oitavo Commit    | _Funcional_                      |
  | REFUlog       | Oitavo Commit    | _Alterar implementação Requests_ |
  | AuroraVision  | Nono Commit      | _Site Quebrado_                  |
- | Growatt       | Nono Commit      | _Alterar implementação Requests_ |
+ | Growatt       | Nono Commit      | _Funcional_                      |
  | EcoSolys      | Décimo Commit    | _Alterar implementação Requests_ |
  | Fronius       | Undécimo Commit  | _Alterar implementação Requests_ |
 
@@ -46,7 +46,7 @@ Por enquanto, no Undécimo Commit, o projeto utiliza a seguinte estrutra:
 - [ ] Estudos de Mecanismos de autênticação, por exemplo OAtuh2;
 - [ ] Estudos Java;
 > * ~~Anotações Inferidas;~~
-> * ~~Expresões Lambda;~~
+> * ~~Expressões Lambda;~~
 > * ~~Modificadores de Acesso;~~
 > * Spring framework.
 - [ ] Estudos GitHub;

@@ -1,60 +1,49 @@
 def Monit_Growatt():
 
     import requests
+    import json
 
-    url = "https://oss.growatt.com/deviceManage/plantManage/list"
-
+    id_locais = []
+    nome_cliente = []
+    energia_dia = []
     dados = []
 
-    for x in range(1,5):
+    url = "https://oss.growatt.com/common/bigScreen/getShowPage_plantList"
 
-        id_locais = []
-        nome_cliente = []
-        energia_dia = []
+    payload = "name=BAFLD001&pwd=143b59b81bbf504d68c2981be1bfc590&page=1&date=2023-09-20&plantType=0%2C1"
+    headers = {
+        'authority': 'oss.growatt.com',
+        'accept': 'application/json, text/javascript, */*; q=0.01',
+        'accept-language': 'pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'cookie': '_ga=GA1.1.558478574.1693220055; _ga_XJ71771Q0R=GS1.1.1693220054.1.1.1693220274.17.0.0; JSESSIONID=c5f62472-70e7-4c07-ba6d-7b127f7f96f8; lang=en; assToken=deca87dfeaae53976fc4d09dc120fa2a; adPic=null; bigName=BAFLD001; bigPwd=143b59b81bbf504d68c2981be1bfc590; SERVERID=1ea79574e391be8474f6c80563d620a3|1695209204|1695207576; SERVERID=1ea79574e391be8474f6c80563d620a3|1695209480|1695207576',
+        'origin': 'https://oss.growatt.com',
+        'referer': 'https://oss.growatt.com/deviceManage/bigScreenPage/plant',
+        'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+        'x-requested-with': 'XMLHttpRequest'
+    }
 
-        payload = f"page={x}&=iCode%3D&=uOrP%3D&=city%3D&=designPower%3D&=totalPowerstar%3D&=totalPowerend%3D&=createPlantstatrime%3D&=createPlantendTime%3D&=deviceSN%3D&=status%3D&groupId=-1&plantType=-1&order=9"
+    response = requests.request("POST", url, headers=headers, data=payload)
 
-        headers = {
-            "authority": "oss.growatt.com",
-            "accept": "application/json, text/javascript, */*; q=0.01",
-            "accept-language": "pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7",
-            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-            "cookie": "JSESSIONID=80212827-918e-4d81-9715-f78868eb42b2; lang=en; adPic=true; assToken=c44dda181faa5aed9259d2c3aff83754",
-            "origin": "https://oss.growatt.com",
-            "referer": "https://oss.growatt.com/index",
-            "sec-ch-ua": "^\^Not/A",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "^\^Windows^^",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-            "x-requested-with": "XMLHttpRequest"
-        }
+    r = response.text
+    resp = json.loads(r)
+    SIZE = len(resp['obj']['datas'][0])
 
-        response = requests.request("POST", url, data=payload, headers=headers)
+    for i in range(0, SIZE):
 
-        if response is None:
-            Monit_Growatt()
+        id_locais.append(resp['obj']['datas'][i]['plant_id'])
 
-        r = response.json()
+        nome_cliente.append(resp['obj']['datas'][i]['plantName'])
 
-        num = r['obj']['pagers'][0]['datas']
-        num = len(num)
+        energia_dia.append(resp['obj']['datas'][i]['etoday'])
 
-        for i in range(0,num):
-
-            locais = r['obj']['pagers'][0]['datas'][i]['uId']
-            id_locais.append(locais)
-
-            clientes = r['obj']['pagers'][0]['datas'][i]['plantNameEncryption']
-            nome_cliente.append(clientes)
-
-            energia = r['obj']['pagers'][0]['datas'][i]['eToday']
-            energia_dia.append(energia)
-
-            dados.append([id_locais[i], nome_cliente[i], energia_dia[i]])
+        dados.append([id_locais[i], nome_cliente[i], energia_dia[i]])
 
     return dados
 
-Monit_Growatt()
