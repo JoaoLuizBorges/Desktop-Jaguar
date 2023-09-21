@@ -15,7 +15,7 @@ Neste aplicativo temos agregados os seguintes monitoramentos:
  | Hoymilles     | Oitavo Commit    | _Funcional_                      |
  | Canadian      | Oitavo Commit    | _Funcional_                      |
  | REFUlog       | Oitavo Commit    | _Alterar implementação Requests_ |
- | AuroraVision  | Nono Commit      | _Site Quebrado_                  |
+ | AuroraVision  | Nono Commit      | _Site Inoperante_                |
  | Growatt       | Nono Commit      | _Funcional_                      |
  | EcoSolys      | Décimo Commit    | _Alterar implementação Requests_ |
  | Fronius       | Undécimo Commit  | _Alterar implementação Requests_ |
