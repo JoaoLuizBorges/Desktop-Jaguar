@@ -4,50 +4,61 @@ import com.jaguar.logacessos.LogAcessos;
 import org.jetbrains.annotations.NotNull;
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
+import org.python.util.PythonInterpreter;
 import java.sql.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.io.File;
+
 public class QueriesDados {
-    public static void ConectaPython() throws Exception{
+    public static void ConectaPython() throws Exception {
 
-        String PYTHONPATH = "C:\\Users\\joaob\\AppData\\Local\\Programs\\Python\\Python311\\python.exe";
-        String SCRIPTPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\main.py";
-
-        ProcessBuilder pb = new ProcessBuilder(PYTHONPATH, SCRIPTPATH);
-        Process p = pb.start();
-        String JSONPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\InfoCliente.json";
-        try{
-            String key = null;
-            ArrayList<String> value = new ArrayList<String>();
-            JSONParser parser = new JSONParser();
-            Object object = parser.parse(new FileReader(JSONPATH));
-            String Dados = object.toString();
-            ObjectMapper mapper = new ObjectMapper();
-
-            Map <String, ArrayList<String>> map = mapper.readValue(Dados, Map.class);
-
-            for(Map.Entry<String,ArrayList<String>> entry: map.entrySet()){
-                value.add(entry.getValue().toString());
-            }
-            String[] idArr = null;
-            String id = value.get(0);
-            id = id.replaceAll("'","").replace("["," ");
-            idArr = id.split(",");
-
-            String[] nomeClienteArr = null;
-            String nomeCliente = value.get(1);
-            nomeCliente = nomeCliente.replaceAll("'","").replace("["," ");
-            nomeClienteArr = nomeCliente.split(",");
-
-            String [] geracaodiaArr = null;
-            String geracaoDia = value.get(2);
-            geracaoDia = geracaoDia.replaceAll("'","").replace("["," ");
-            geracaodiaArr = geracaoDia.split(",");
-
-            for(int i = 0; i < idArr.length-1; i++){
-                QueriesDados.QueriesMonit(idArr[i], nomeClienteArr[i], geracaodiaArr[i]);
-            }
-        }catch (Exception e){
+        try {
+            String SCRIPTPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\main.py";
+            PythonInterpreter interpreter = new PythonInterpreter();
+            interpreter.exec(SCRIPTPATH);
+        } catch(Exception e){
             e.printStackTrace();
+        }
+        //Process pb = new ProcessBuilder("python", "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\main.py").start();
+        String JSONPATH = "C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\InfoCliente.json";
+        File f = new File(JSONPATH);
+        if (f.exists()) {
+            try {
+                String key = null;
+                ArrayList<String> value = new ArrayList<String>();
+                JSONParser parser = new JSONParser();
+                Object object = parser.parse(new FileReader(JSONPATH));
+                String Dados = object.toString();
+                ObjectMapper mapper = new ObjectMapper();
+
+                Map<String, ArrayList<String>> map = mapper.readValue(Dados, Map.class);
+
+                for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
+                    value.add(entry.getValue().toString());
+                }
+                String[] idArr = null;
+                String id = value.get(0);
+                id = id.replaceAll("'", "").replace("[", " ");
+                idArr = id.split(",");
+
+                String[] nomeClienteArr = null;
+                String nomeCliente = value.get(1);
+                nomeCliente = nomeCliente.replaceAll("'", "").replace("[", " ");
+                nomeClienteArr = nomeCliente.split(",");
+
+                String[] geracaodiaArr = null;
+                String geracaoDia = value.get(2);
+                geracaoDia = geracaoDia.replaceAll("'", "").replace("[", " ");
+                geracaodiaArr = geracaoDia.split(",");
+
+                for (int i = 0; i < idArr.length - 1; i++) {
+                    QueriesDados.QueriesMonit(idArr[i], nomeClienteArr[i], geracaodiaArr[i]);
+                }
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
     public static String @NotNull [] Conecta(){
@@ -84,15 +95,24 @@ public class QueriesDados {
                 st.setString(2,id_locais);
                 st.executeUpdate();
                 conexao.close();
+                TimeUnit.SECONDS.sleep(3);
+                File f = new File("C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\InfoCliente.json");
+                f.delete();
 
             }else {
                 Statement stmtInsert = (Statement) conexao.createStatement();
                 String insert = "INSERT INTO geracao VALUES ('" + id_locais + "','" + nome_cliente + "','" + energia_dia + "')";
                 stmtInsert.executeUpdate(insert);
                 conexao.close();
+                TimeUnit.SECONDS.sleep(3);
+                File f = new File("C:\\Users\\joaob\\Desktop\\Desenvolvimento\\jaguar\\python\\InfoCliente.json");
+                f.delete();
+
             }
         }catch (SQLException ex){
             System.out.println("Ocorreu um erro ao acessar o banco: " +ex.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
     public static void VerificaDados(String usuario, String senha) throws SQLException{

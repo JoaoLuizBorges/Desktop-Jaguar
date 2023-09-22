@@ -8,17 +8,17 @@ respectivas aplicações web.
 
 Neste aplicativo temos agregados os seguintes monitoramentos: 
 
- | Monitoramento |    Adicionado    | Estado                           |
- |---------------|------------------|----------------------------------|
- | SolarEdge     | Quinto Commit    | _Funcional_                      |
- | SolarMan      | Oitavo Commit    | _Funcional_                      |
- | Hoymilles     | Oitavo Commit    | _Funcional_                      |
- | Canadian      | Oitavo Commit    | _Funcional_                      |
- | REFUlog       | Oitavo Commit    | _Alterar implementação Requests_ |
- | AuroraVision  | Nono Commit      | _Site Inoperante_                |
- | Growatt       | Nono Commit      | _Funcional_                      |
- | EcoSolys      | Décimo Commit    | _Alterar implementação Requests_ |
- | Fronius       | Undécimo Commit  | _Alterar implementação Requests_ |
+ | Monitoramento |    Adicionado    | Estado                     |
+ |---------------|------------------|----------------------------|
+ | SolarEdge     | Quinto Commit    | _Funcional_                |
+ | SolarMan      | Oitavo Commit    | _Funcional_                |
+ | Hoymilles     | Oitavo Commit    | _Pausar Desenvolvimento_   |
+ | Canadian      | Oitavo Commit    | _Funcional_                |
+ | REFUlog       | Oitavo Commit    | _Pausar Desenvolvimento_   |
+ | AuroraVision  | Nono Commit      | _Site Inoperante_          |
+ | Growatt       | Nono Commit      | _Funcional_                |
+ | EcoSolys      | Décimo Commit    | _Sistema GD não conectado_ |
+ | Fronius       | Undécimo Commit  | _API indisponível_         |
 
 ## Estrutura e Fluxo do pragrama
 
